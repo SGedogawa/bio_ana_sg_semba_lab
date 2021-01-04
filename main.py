@@ -1,5 +1,4 @@
-from mylib import calc, merge_data
-
+import pandas as pd
+from gtfparse import read_gtf
 
 if __name__ == '__main__':
-    print(calc.Calc().calc_zscore())
