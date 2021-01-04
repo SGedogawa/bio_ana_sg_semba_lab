@@ -1,0 +1,11 @@
+###### Requirements without Version Specifiers ######`
+
+###### Requirements with Version Specifiers ######`
+biopython == 1.78
+gtfparse == 1.2.1
+jupyter == 1.0.0
+matplotlib == 3.3.3
+matplotlib_venn == 0.11.6
+numpy == 1.19.4
+pandas == 1.2.0
+scipy == 1.6.0
