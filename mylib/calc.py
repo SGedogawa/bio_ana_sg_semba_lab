@@ -1,6 +1,7 @@
-from mylib import merge_data
-
+from mylib import merge_data, read_gencode
+from settings import const
 import numpy as np
+import pandas as pd
 import scipy.stats
 
 
@@ -12,6 +13,7 @@ class Calc(object):
         self.gene_id = self.info.gene_id
         self.rnaseq = self.info.rnaseq_df.values
         self.ic50 = self.info.ic50_df.values
+        self.gencode_df = read_gencode.CreateDF().to_gencode_df().gencode_df
 
     def calc_cor(self):
         cor_list = np.empty(len(self.gene_id))
@@ -39,7 +41,7 @@ class Calc(object):
         gene_list = []
         for i, v in enumerate(zscore_list):
             if v >= zscore:
-                gene_list.append(self.gene_id[i])
+                gene_list += self.gene_id[i]
 
         return gene_list
 
@@ -48,6 +50,12 @@ class Calc(object):
         gene_list = []
         for i, v in enumerate(zscore_list):
             if v <= zscore:
-                gene_list.append(self.gene_id[i])
+                gene_list += self.gene_id[i]
 
         return gene_list
+
+    def search_gene(self, gene_list):
+        result = self.gencode_df.copy()
+        result = result[result['gene_id'].isin(gene_list)]
+        result.to_csv(const.result_path + 'result.csv')
+        return result

@@ -1,9 +1,14 @@
 # tpm_data_path
 tpm_data_path = "data/ccle/CCLE_RNAseq_rsem_genes_tpm_20180929.txt"
 
-# tpm_data_path
+# ic50_data_path
 ic50_data_path = "data/gdsc/"
 
+# gencode_data_path
+gencode_data_path = "data/ccle/gencode.v19.genes.v7_model.patched_contigs.gtf"
+
+# result_path
+result_path = "result/"
 
 # 癌分類対応表
 species = {'PROSTATE': 0,

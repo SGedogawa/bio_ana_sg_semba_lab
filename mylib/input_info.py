@@ -27,7 +27,7 @@ def input_info() -> Info:
     tissue = input("tissue ? ")
 
     tpm_df = pd.read_table(const.tpm_data_path)
-    gene_id = tpm_df.loc[:, ['gene_id']].values
+    gene_id = tpm_df.loc[:, ['gene_id']].values.tolist()
 
     return Info(cancer_species=cancer_species,
                 drug_name=drug_name,
